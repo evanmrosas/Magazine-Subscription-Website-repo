@@ -1,0 +1,4 @@
+input this into the terminal after setting up your files correctly: 
+pipenv install PyMySQL flask flask-bcrypt
+pipenv shell
+python3 server.py

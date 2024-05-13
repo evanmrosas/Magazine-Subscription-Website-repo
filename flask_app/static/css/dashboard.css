@@ -1,0 +1,45 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.container, #top-row, #bot-row, .links{
+    display: flex;
+}
+h1, h2, a, td{
+    font-family: Arial, sans-serif;
+}
+#logout-button, #bot-row{
+    border: 2px solid black;
+}
+h1, h2{
+    font-weight:600;
+}
+#top-row, .links{
+    align-items: center;
+}
+.container{
+    flex-direction: column;
+    padding: 2% 10%;
+    gap: 40px;
+}
+#top-row{
+    justify-content: space-between;
+}
+.links{
+    gap: 20px;
+}
+#logout-button{
+    text-decoration: none;
+    color: black;
+    padding: 8px;
+    background-color: rgb(211, 208, 208);
+    border-radius: 5px;
+    width: 70px;
+    text-align: center;
+}
+#bot-row{
+    padding: 20px;
+    border-radius: 10px;
+    width: 70%;
+}
+

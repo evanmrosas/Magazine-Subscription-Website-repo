@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login & Registration</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='/css/login_reg.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="box-border">
+            <div class="boxes">
+                <div class="box" id="registration">
+                    <h2 class="register">Register</h2>
+                    <div class="error-box">
+                        {% with messages = get_flashed_messages(category_filter=['registration-error']) %}
+                            {% if messages %}
+                                {% for message in messages %}
+                                    <p>{{message}}</p> 
+                                {% endfor %}
+                            {% endif %}
+                        {% endwith %}
+                    </div>
+                    <form action="/registration" method="POST">
+                        <label for="first_name">First Name:</label>
+                        <input type="text" name="first_name" class="user-info">
+                        <label for="last_name">Last Name:</label>
+                        <input type="text" name="last_name" class="user-info">
+                        <label for="email">Email:</label>
+                        <input type="text" name="email" class="user-info">
+                        <label for="password">Password:</label>
+                        <input type="password" name="password" class="user-info">
+                        <label for="val-password">Validate Password:</label>
+                        <input type="password" name="val-password" class="user-info">
+                        <input type="submit" value="Register"  class="buttons register-button" name="register-form">
+                    </form>
+                </div>
+                <div class="box" id="login">
+                    <h2 class="login">Login</h2>
+                    <div class="error-box">
+                        {% with messages = get_flashed_messages(category_filter=['login-error']) %}
+                            {% if messages %}
+                                {% for message in messages %}
+                                    <p>{{message}}</p> 
+                                {% endfor %}
+                            {% endif %}
+                        {% endwith %}
+                    </div>
+                    <form action="/login" method="POST">
+                        <label for="email">Email:</label>
+                        <input type="text" name="email" class="user-info">
+                        <label for="password">Password:</label>
+                        <input type="password" name="password" class="user-info">
+                        <input type="submit" value="Login"  class="buttons login-button" name="login-form">
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>

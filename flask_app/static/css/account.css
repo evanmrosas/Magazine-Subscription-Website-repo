@@ -1,0 +1,90 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.container, #top-row, #bot-row, .col, .sub-col, #form-row, .user-form, .form-container,  .links{
+    display: flex;
+}
+.container, .col, .sub-col, .form-container{
+    flex-direction: column;
+}
+.container, .col, .form-container, .sub-col, .links, #error-box{
+    gap: 20px;
+}
+h1, h2, a, td, p, input, label, li{
+    font-family: Arial, sans-serif;
+}
+#logout-button{
+    border: 2px solid black;
+}
+h1, h2{
+    font-weight:600;
+}
+#top-row, .links{
+    align-items: center;
+}
+.container{
+    padding: 2% 10%;
+    gap: 40px;
+}
+#top-row, .col{
+    justify-content: space-between;
+}
+#logout-button{
+    text-decoration: none;
+    color: black;
+    padding: 8px;
+    background-color: rgb(211, 208, 208);
+    border-radius: 5px;
+    width: 70px;
+    text-align: center;
+}
+#update-button{
+    text-decoration: none;
+    color: black;
+    padding: 5px;
+    background-color: rgb(211, 208, 208);
+    border-radius: 5px;
+    width: 110px;
+    text-align: center;
+}
+#bot-row, #form-row{
+    justify-content: center;
+}
+.sub-col, label {
+    margin-bottom: 5px;
+}
+.sub-col{
+    width: 100%;
+}
+.col{
+    width: 50%;
+}
+#form-row{
+    gap: 700px;
+}
+label, .user-info, #update-button{
+    font-size: large;
+}
+input{
+    padding: 10px;
+    border-radius: 5px;
+    border: 2px solid black;
+    width: 120%;
+}
+ul {
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: 20px;
+    list-style: none; /* Remove default list styles */
+    margin-bottom: 300px;
+}
+#error-box{
+    background-color: rgb(241, 215, 217);
+    width: 48%;
+    border-radius: 5px;
+}
+p{
+    color: rgb(107, 38, 41);
+    margin: 5px;
+}

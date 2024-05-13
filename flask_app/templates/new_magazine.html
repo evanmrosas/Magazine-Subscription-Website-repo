@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Magazine</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='/css/new_magazine.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="row" id="top-row">
+            <h2>Welcome, {{session['user_name']}}!</h2>
+            <div class="links">
+                <a href="/dashboard">Dashboard</a>
+                <a href="/logout">Logout</a>
+            </div>
+        </div>
+        <div class="row" id="mid-row">
+            <h1>Add a Magazine</h1>
+        </div>
+        <div class="row" id="error-box">
+            {% with messages = get_flashed_messages(category_filter=[]) %}
+                            {% if messages %}
+                                {% for message in messages %}
+                                    <p>{{message}}</p> 
+                                {% endfor %}
+                            {% endif %}
+                        {% endwith %}
+        </div>
+        <div class="row" id="form-row">
+            <form action="/add-magazine" class="magazine-form" method="POST">
+                <label for="title">Title:</label>
+                <input type="text" name="title" class="user-info">
+                <label for="description">Description:</label>
+                <textarea name="description" id="" cols="50" rows="10" class="user-info"></textarea>
+                <input type="submit" value="Submit" id="submit-button">
+            </form>
+        </div>
+    </div>
+</body>
+</html>

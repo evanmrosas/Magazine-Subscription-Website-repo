@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Magazine</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='/css/view_magazine.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="row" id="top-row">
+            <h2>Welcome, {{session['user_name']}}!</h2>
+            <div class="links">
+                <a href="/magazines/new">Add Magazine</a>
+                <a href="/dashboard">Dashboard</a>
+                <a href="/user/account">Account</a>
+                <a href="/logout" id="logout-button">Logout</a>
+            </div>
+        </div>
+        <div class="row" id="mid-row">
+            <h1>{{ magazine.title }}</h1>
+        </div>
+        <div class="row" id="bot-row">
+            <p>Added by {{ magazine.first_name }} {{ magazine.last_name }}</p>
+            <p>Description:</p>
+            <p>{{ magazine.description }}</p>
+        </div>
+    </div>
+</body>
+</html>

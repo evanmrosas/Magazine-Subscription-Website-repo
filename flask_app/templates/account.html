@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='/css/account.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="row" id="top-row">
+            <h2>Welcome, {{session['user_name']}}!</h2>
+            <div class="links">
+                <a href="/magazines/new">Add Magazine</a>
+                <a href="/dashboard">Dashboard</a>
+                <a href="/logout" id="logout-button">Logout</a>
+            </div>
+        </div>
+        <div class="row" id="error-box">
+            {% with messages = get_flashed_messages(category_filter=['registration-error']) %}
+                {% if messages %}
+                    {% for message in messages %}
+                        <p>{{message}}</p> 
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+        </div>
+        <div class="row" id="form-row">
+            <div class="col">
+                <h2>Update User</h2>
+                <form action="/user/account" class="user-form" method="POST">
+                    <div class="sub-col">
+                        <div class="form-container">
+                            <label for="first_name">First Name:</label>
+                            <input type="text" id="first_name" name="first_name" class="user-info" value="{{ user.first_name }}">
+                            
+                            <label for="last_name">Last Name:</label>
+                            <input type="text" id="last_name" name="last_name" class="user-info" value="{{ user.last_name }}">
+                            
+                            <label for="email">Email:</label>
+                            <input type="text" id="email" name="email" class="user-info" value="{{ user.email }}">
+                            <input type="hidden" name="old_email" value="{{ old_email }}">
+                        </div>
+                        <input type="submit" value="Update" id="update-button">
+                    </div>
+                </form>
+            </div>
+            <div class="col">
+                <h2>User's Magazines</h2>
+                <div class="sub-col" id="mag-list">
+                    {% if magazines %}
+                        <ul>
+                            {% for magazine in magazines %}
+                                <li>
+                                    {{ magazine.title }}
+                                    <a href="/magazines/delete/{{ magazine.id }}">Delete</a>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
